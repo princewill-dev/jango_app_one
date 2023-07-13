@@ -1,0 +1,85 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <link rel="stylesheet" href="{% static 'myglobal.css' %}">
+<body>
+
+{% comment %} {% for x in fruits %}
+  <h1>{{ x }}</h1>
+{% endfor %}
+
+{% with firstname="Tobias" %}
+<h1>Hello {{ firstname }}, how are you?</h1>
+{% endwith %} {% endcomment %}
+
+
+{% comment %} <ul>
+  {% for x in mymembers %}
+    <li>{{ x.firstname }}</li>
+  {% endfor %}
+</ul>
+
+{% if greeting == 2 %}
+  <h1>Hello</h1>
+{% else %}
+  <h1>Bye</h1>
+{% endif %} {% endcomment %}
+
+{% comment %} {% if x is y %}
+  <h1>YES</h1>
+{% else %}
+  <h1>NO</h1>
+{% endif %}
+
+{% if x == y %}
+  <h1>YES</h1>
+{% else %}
+  <h1>NO</h1>
+{% endif %} {% endcomment %}
+
+
+{% comment %} {% for x in fruits %}
+  <h1>{{ x }}</h1>
+{% endfor %} {% endcomment %}
+
+{% for x in members %}
+  <h1>{{ x.id }}</h1>
+  <p>
+    {{ x.firstname }}
+    {{ x.lastname }}
+  </p>
+{% endfor %} 
+
+{% comment %} <p>In views.py you can see what the fruits variable looks like.</p> {% endcomment %}
+
+{% comment %} {% for x in members reversed %}
+  <h1>{{ x.id }}</h1>
+  <p>
+    {{ x.firstname }}
+    {{ x.lastname }}
+  </p>
+{% endfor %} {% endcomment %}
+
+<p>The queryset object:</p>
+{{ mymembers }}
+
+<table border='1'>
+  <tr>
+    <th>ID</th>
+    <th>Firstname</th>
+    <th>Lastname</th>
+  </tr>
+  {% for x in mymembers %}
+    <tr>
+      <td>{{ x.id }}</td>
+        <td>{{ x.firstname }}</td>
+      <td>{{ x.lastname }}</td>
+    </tr>
+  {% endfor %}
+</table>
+
+
+
+</body>
+</html>
